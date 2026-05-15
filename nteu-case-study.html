@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NTEU #Secure&Equal — Phoebe Huang</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#0f0e0d;--cream:#f5f0e8;--warm:#f0e9d8;--accent:#7a1f3d;--accent-light:#f2e4e9;--mid:#888;--border:#d8d0c4;--dark:#1a1108;--purple:#4a1a7a;--purple-light:#f0ebfa}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:'Syne',sans-serif;overflow-x:hidden}
+
+.back-nav{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;border-bottom:0.5px solid var(--border);background:var(--cream);position:sticky;top:0;z-index:100}
+.back-link{font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s}
+.back-link:hover{color:var(--accent)}
+.proj-nav-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;font-style:italic;color:var(--mid)}
+.nav-cta{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:0.45rem 1rem;text-decoration:none;transition:all 0.2s}
+.nav-cta:hover{background:var(--accent);color:var(--cream)}
+
+/* HERO */
+.case-hero{background:var(--purple);color:var(--cream);padding:5rem 3rem 4rem;border-bottom:0.5px solid var(--border)}
+.case-eyebrow{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:2.5rem}
+.eyebrow-tag{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.3rem 0.8rem;border:0.5px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.65)}
+.eyebrow-tag.hl{border-color:rgba(242,228,233,0.6);color:#e8d5f5}
+.case-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:300;line-height:0.95;margin-bottom:1rem}
+.case-title em{font-style:italic;color:#c8a85a}
+.case-subtitle{font-size:1rem;line-height:1.8;color:rgba(255,255,255,0.75);font-weight:500;max-width:60ch;margin-bottom:3rem}
+.case-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:0.5px solid rgba(255,255,255,0.15);padding-top:2rem}
+.meta-item{padding-right:2rem}
+.meta-label{font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.38);margin-bottom:0.4rem}
+.meta-value{font-size:0.85rem;font-weight:500;color:var(--cream)}
+
+/* STRATEGY NOTE */
+.strategy-note{background:var(--accent);color:var(--cream);padding:2rem 3rem;display:flex;align-items:flex-start;gap:2rem;border-bottom:0.5px solid var(--border)}
+.note-icon{font-size:1.5rem;opacity:0.8;flex-shrink:0;margin-top:0.2rem}
+.note-label{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;opacity:0.7;margin-bottom:0.5rem}
+.note-text{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;font-weight:300;line-height:1.65;color:var(--cream)}
+
+/* SECTIONS */
+.cs-section{padding:4rem 3rem;border-bottom:0.5px solid var(--border)}
+.cs-label{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.8rem}
+.cs-label::before{content:'';display:inline-block;width:1.5rem;height:0.5px;background:var(--accent)}
+.cs-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.1;color:var(--ink);margin-bottom:2rem}
+.cs-heading em{font-style:italic;color:var(--accent)}
+.cs-body{font-size:1rem;line-height:2;color:#3a3228;font-weight:500;max-width:68ch}
+
+/* PROBLEM — two col */
+.prob-layout{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:2rem;border:0.5px solid var(--border)}
+.prob-col{padding:2rem;border-right:0.5px solid var(--border)}
+.prob-col:last-child{border-right:none}
+.prob-col-label{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:1.2rem;font-weight:600}
+.prob-col-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:1rem}
+.prob-col-body{font-size:0.92rem;line-height:1.9;color:#3a3228;font-weight:500}
+
+/* INSIGHT CHAIN */
+.chain{display:flex;flex-direction:column;gap:0;margin-top:2rem;border:0.5px solid var(--border)}
+.chain-step{display:grid;grid-template-columns:60px 1fr;align-items:stretch;border-bottom:0.5px solid var(--border)}
+.chain-step:last-child{border-bottom:none}
+.chain-step.highlighted .chain-main{background:var(--purple-light);border-left:3px solid var(--purple)}
+.chain-num{background:var(--warm);padding:1.5rem;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--border);border-right:0.5px solid var(--border)}
+.chain-main{padding:1.5rem 2rem}
+.chain-title{font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:0.4rem}
+.chain-body{font-size:0.88rem;line-height:1.8;color:#3a3228;font-weight:500}
+.chain-badge{display:inline-block;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border:0.5px solid var(--purple);color:var(--purple);background:var(--purple-light);margin-top:0.5rem}
+
+/* INSIGHT PULL */
+.insight-pull{background:var(--purple);color:var(--cream);padding:3rem;font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;font-style:italic;line-height:1.5;margin-top:2rem}
+.insight-pull strong{font-style:normal;font-weight:500;display:block;font-size:0.72rem;font-family:'Syne',sans-serif;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;opacity:0.65}
+.insight-pull em{color:#c8a85a}
+
+/* STRATEGY REFRAME */
+.reframe-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:0.5px solid var(--border);margin-top:2rem}
+.reframe-cell{background:var(--cream);padding:2rem}
+.reframe-cell.new{background:var(--purple-light)}
+.reframe-label{font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.8rem;font-weight:600}
+.reframe-label.old{color:var(--mid)}
+.reframe-label.new{color:var(--purple)}
+.reframe-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;line-height:1.4;color:var(--ink)}
+.reframe-sub{font-size:0.85rem;line-height:1.75;color:#3a3228;font-weight:500;margin-top:0.8rem}
+
+/* PILLARS */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.pillar{border:0.5px solid var(--border);padding:2rem}
+.pillar-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--border);line-height:1;margin-bottom:1rem}
+.pillar-title{font-size:0.88rem;font-weight:700;letter-spacing:0.03em;color:var(--ink);margin-bottom:0.8rem}
+.pillar-body{font-size:0.85rem;line-height:1.8;color:#3a3228;font-weight:500}
+.pillar-tag{display:inline-block;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.25rem 0.6rem;border:0.5px solid var(--accent);color:var(--accent);background:var(--accent-light);margin-top:1rem}
+
+/* TACTICS */
+.tactics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2rem}
+.tactic-card{background:var(--warm);border:0.5px solid var(--border);padding:1.8rem}
+.tactic-num{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);margin-bottom:0.8rem}
+.tactic-title{font-size:0.92rem;font-weight:700;color:var(--ink);margin-bottom:0.6rem}
+.tactic-body{font-size:0.85rem;line-height:1.8;color:#3a3228;font-weight:500}
+.tactic-meta{font-size:0.68rem;letter-spacing:0.08em;color:var(--accent);margin-top:0.8rem;font-weight:600}
+
+/* DATA STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:0.5px solid var(--border);margin-top:2rem}
+.stat-block{background:var(--cream);padding:1.8rem;text-align:center}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--ink);line-height:1}
+.stat-num em{font-style:italic;color:var(--purple)}
+.stat-label{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a5248;margin-top:0.5rem;font-weight:600}
+.stat-source{font-size:0.58rem;color:var(--mid);margin-top:0.3rem}
+
+/* PHOEBE'S CONTRIBUTION */
+.contrib-section{background:var(--dark);color:var(--cream);padding:4rem 3rem}
+.contrib-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contrib-quote{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;font-style:italic;line-height:1.4;color:var(--cream)}
+.contrib-quote em{color:#c8a85a}
+.contrib-points{display:flex;flex-direction:column;gap:1.2rem}
+.contrib-label-top{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1rem}
+.contrib-point{padding-left:1rem;border-left:1px solid rgba(255,255,255,0.2)}
+.contrib-point-label{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.42);margin-bottom:0.3rem}
+.contrib-point-text{font-size:0.9rem;line-height:1.8;color:rgba(255,255,255,0.85);font-weight:500}
+
+/* NEXT */
+.next-proj{padding:3rem;border-top:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:inherit;transition:background 0.2s}
+.next-proj:hover{background:var(--warm)}
+.next-label{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid)}
+.next-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;font-style:italic;color:var(--ink);margin-top:0.4rem}
+
+@media(max-width:768px){
+  .back-nav{padding:1rem 1.5rem}.proj-nav-title{display:none}
+  .case-hero{padding:3rem 1.5rem 2.5rem}.case-meta{grid-template-columns:1fr 1fr}
+  .cs-section{padding:3rem 1.5rem}
+  .prob-layout{grid-template-columns:1fr}
+  .prob-col{border-right:none;border-bottom:0.5px solid var(--border)}
+  .reframe-grid{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr}
+  .tactics-grid{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .contrib-inner{grid-template-columns:1fr}
+  .strategy-note{padding:2rem 1.5rem}
+  .next-proj{padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="back-nav">
+  <a href="index.html" class="back-link">← All Work</a>
+  <div class="proj-nav-title">NTEU — #Secure & Equal</div>
+  <a href="mailto:xiaofei.phoebe.huang@email.com" class="nav-cta">Get in Touch</a>
+</div>
+
+<!-- HERO -->
+<div class="case-hero">
+  <div class="case-eyebrow">
+    <span class="eyebrow-tag hl">Campaign Strategy</span>
+    <span class="eyebrow-tag">Public Affairs</span>
+    <span class="eyebrow-tag">Social Media</span>
+    <span class="eyebrow-tag">Integrated Campaign</span>
+    <span class="eyebrow-tag">University Project</span>
+  </div>
+  <h1 class="case-title">#Secure<br><em>&amp; Equal</em></h1>
+  <p class="case-subtitle">A public advocacy campaign for Australia's National Tertiary Education Union — reframing the fight for casualised staff rights from a labour dispute into a systemic education quality crisis that affects everyone.</p>
+  <div class="case-meta">
+    <div class="meta-item"><div class="meta-label">My Role</div><div class="meta-value">Lead Strategist</div></div>
+    <div class="meta-item"><div class="meta-label">Client</div><div class="meta-value">NTEU (simulated)</div></div>
+    <div class="meta-item"><div class="meta-label">Timeline</div><div class="meta-value">Feb–Mar 2023</div></div>
+    <div class="meta-item"><div class="meta-label">Type</div><div class="meta-value">Campus → Agency-Ready</div></div>
+  </div>
+</div>
+
+<!-- STRATEGY NOTE -->
+<div class="strategy-note">
+  <i class="ti ti-bulb note-icon" aria-hidden="true"></i>
+  <div>
+    <div class="note-label">Strategist's Note</div>
+    <div class="note-text">The original brief focused on wage inequality for casualised staff. I pushed the team to go deeper — and found a structural incentive loop that reframed the entire campaign argument. What follows is the strategy I led.</div>
+  </div>
+</div>
+
+<!-- THE BRIEF -->
+<div class="cs-section">
+  <div class="cs-label">01 — The Brief</div>
+  <h2 class="cs-heading">A union fighting for <em>its members.</em><br>But is that the right battle?</h2>
+  <p class="cs-body">The National Tertiary Education Union (NTEU) commissioned a campaign to raise public awareness of two issues in Australian higher education: the gender pay gap and the over-reliance on casualised teaching staff. With limited funding and around 30,000 members, NTEU needed to punch far above its weight to shift public opinion and pressure university management.</p>
+  <p class="cs-body" style="margin-top:1.2rem">The initial brief positioned this as a labour rights story: unfair wages, insecure contracts, workers being exploited. True — but not compelling enough to break through to people outside the sector.</p>
+  
+  <div class="prob-layout">
+    <div class="prob-col">
+      <div class="prob-col-label">What the brief said</div>
+      <div class="prob-col-title">A wage justice and job security problem</div>
+      <div class="prob-col-body">Female staff earn significantly less than male counterparts. Casualised staff — over 43% of the university workforce — work full teaching loads without entitlements: no sick leave, no annual leave, no job security. Universities exploit this model to reduce costs.</div>
+    </div>
+    <div class="prob-col">
+      <div class="prob-col-label">What the data revealed</div>
+      <div class="prob-col-title">A structural incentive problem with a hidden victim</div>
+      <div class="prob-col-body">Casualised staff face a unique threat: if enrolments drop in their course, they get cut. This creates a perverse incentive — some staff deliberately fail students to force re-enrolments. The real victim isn't just the worker. It's the student. And that changes everything about how we campaign.</div>
+    </div>
+  </div>
+</div>
+
+<!-- INSIGHT CHAIN -->
+<div class="cs-section">
+  <div class="cs-label">02 — Strategic Insight</div>
+  <h2 class="cs-heading">Follow the incentive.<br><em>Find the real story.</em></h2>
+  <p class="cs-body">I went beyond the brief to research how casualised employment actually functions inside universities. What I found was a chain of systemic pressure that no one was talking about publicly.</p>
+
+  <div class="chain">
+    <div class="chain-step">
+      <div class="chain-num">1</div>
+      <div class="chain-main">
+        <div class="chain-title">Universities hire casualised staff to cut costs</div>
+        <div class="chain-body">Casual staff can't be used as references for bank loans or visas. Many enter through informal channels — internal referrals from existing staff. Universities tolerate this because casuals cost significantly less than permanent hires, inflating institutional profit margins.</div>
+      </div>
+    </div>
+    <div class="chain-step">
+      <div class="chain-num">2</div>
+      <div class="chain-main">
+        <div class="chain-title">But casuals are measured on enrolment numbers</div>
+        <div class="chain-body">Despite their precarious status, casualised staff face performance pressure: if the number of students enrolling in their course declines year-on-year, they face redundancy. No enrolments, no contract renewal.</div>
+      </div>
+    </div>
+    <div class="chain-step highlighted">
+      <div class="chain-num">3</div>
+      <div class="chain-main">
+        <div class="chain-title">This creates a dangerous incentive loop</div>
+        <div class="chain-body">To protect their jobs, some casualised staff deliberately mark students down — issuing failing grades to force re-enrolments in the following year. Students who should pass are failed. Education quality is directly compromised by a structural employment model.</div>
+        <span class="chain-badge">The hidden insight</span>
+      </div>
+    </div>
+    <div class="chain-step">
+      <div class="chain-num">4</div>
+      <div class="chain-main">
+        <div class="chain-title">The "bad money drives out good" effect</div>
+        <div class="chain-body">Universities that tolerate underqualified casuals while ignoring performance issues create an environment where capable staff are disadvantaged and bad actors are incentivised to stay. Academic standards erode. Student experience deteriorates. Trust in institutions declines.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-pull">
+    <strong>Core Strategic Insight</strong>
+    "This isn't just a labour rights story. Casualisation is a <em>student rights story.</em> When staff job security is precarious, student grade integrity is compromised. The system isn't just unfair to workers — it's structurally rigged against the people it's supposed to serve."
+  </div>
+</div>
+
+<!-- STRATEGIC REFRAME -->
+<div class="cs-section">
+  <div class="cs-label">03 — The Reframe</div>
+  <h2 class="cs-heading">Change who the<br><em>audience cares about.</em></h2>
+  <p class="cs-body">The original framing asked the public to sympathise with workers they didn't know. The reframe made every student, parent, and taxpayer a stakeholder in the outcome. This fundamentally shifts the campaign's emotional pull and policy leverage.</p>
+
+  <div class="reframe-grid">
+    <div class="reframe-cell">
+      <div class="reframe-label old">Original frame</div>
+      <div class="reframe-text">"Casualised staff deserve better pay and job security."</div>
+      <div class="reframe-sub">Audience: people who already care about labour rights. A passionate but limited base. Easily dismissed as self-interest by universities and government.</div>
+    </div>
+    <div class="reframe-cell new">
+      <div class="reframe-label new">Strategic reframe</div>
+      <div class="reframe-text">"Casualisation is failing students — and corrupting the integrity of Australian higher education."</div>
+      <div class="reframe-sub">Audience: every student, every parent, every employer who hires graduates. The stakes are now universal. Universities can no longer dismiss this as an internal labour dispute.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CAMPAIGN STRATEGY -->
+<div class="cs-section">
+  <div class="cs-label">04 — Campaign Strategy</div>
+  <h2 class="cs-heading">One campaign.<br><em>Three pressure points.</em></h2>
+  <p class="cs-body">Rather than a single ask, the campaign was structured to build pressure across three audiences simultaneously — using different messages, tones, and channels for each, all unified under the #Secure&Equal hashtag.</p>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <div class="pillar-title">Public Outrage → Media & Social</div>
+      <div class="pillar-body">Make the issue impossible to ignore. Memes and shareable content put the contradiction of casualisation into language that young university workers and students can share without feeling like activists. The skeleton meme — still waiting for the gender pay gap to be fixed — was deliberately irreverent: it makes the point while lowering the barrier to share.</div>
+      <span class="pillar-tag">Awareness</span>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <div class="pillar-title">Institutional Pressure → Media Releases</div>
+      <div class="pillar-body">Two strategically timed releases: the first at launch to frame the problem with data (WGEA gender pay gap data, casualisation statistics); the second five days in to maintain momentum with participant stories. Targeting 7NEWS, 9NEWS, ABC, and radio (KIIS 106.5, Radio Focus) to reach beyond the sector echo chamber.</div>
+      <span class="pillar-tag">Earned Media</span>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <div class="pillar-title">Community Mobilisation → Hashtag Relay</div>
+      <div class="pillar-body">The #Secure&Equal hashtag relay — launched on Employee Rights Day (Feb 13) — invited affected workers to share their stories. A branded T-shirt incentive was offered to selected participants. This created a story supply chain: real voices, real names, real consequences. Far more persuasive than institutional statements alone.</div>
+      <span class="pillar-tag">Community</span>
+    </div>
+  </div>
+</div>
+
+<!-- TACTICS -->
+<div class="cs-section">
+  <div class="cs-label">05 — Tactics & Execution</div>
+  <h2 class="cs-heading">What we <em>actually made.</em></h2>
+  <p class="cs-body">Each tactic was mapped to a specific audience and moment in the campaign arc — not just a list of deliverables, but a coordinated sequence designed to build and sustain public attention over three weeks.</p>
+  <div class="tactics-grid">
+    <div class="tactic-card">
+      <div class="tactic-num">Tactic 01</div>
+      <div class="tactic-title">Meme Series — Shareable outrage</div>
+      <div class="tactic-body">Four memes adapting familiar formats (Distracted Boyfriend, Woman Yelling at Cat, Medieval Skeleton) to make gender pay gap and casualisation absurdities instantly legible to a young, social-media-native audience. Designed to spread without requiring context.</div>
+      <div class="tactic-meta">Target: Young university workers & students · Instagram / Twitter</div>
+    </div>
+    <div class="tactic-card">
+      <div class="tactic-num">Tactic 02 — Phoebe's contribution</div>
+      <div class="tactic-title">Media Releases — Two-wave news strategy</div>
+      <div class="tactic-body">Release 1 (Feb 13, Employee Rights Day): Campaign launch, data-led framing of the crisis. Release 2 (Feb 18): Sustain momentum with participant story — "As a casual, I went through many unjust experiences." Each release accompanied by 5 images calibrated for social and broadcast media separately.</div>
+      <div class="tactic-meta">Target: Journalists at 7NEWS, 9NEWS, ABC · Radio: KIIS 106.5, Focus</div>
+    </div>
+    <div class="tactic-card">
+      <div class="tactic-num">Tactic 03</div>
+      <div class="tactic-title">Campaign Posters — Visual identity</div>
+      <div class="tactic-body">"Say YES To An End of Gender Pay Gap" and "Say YES To An End of Casualisation" — direct, affirmative, designed for physical and digital distribution. The positive framing ("Say YES") was deliberate: it invites action rather than protest, making the ask feel achievable.</div>
+      <div class="tactic-meta">Target: Current university staff · On-campus & social distribution</div>
+    </div>
+    <div class="tactic-card">
+      <div class="tactic-num">Tactic 04</div>
+      <div class="tactic-title">#Secure&Equal Hashtag Relay — UGC engine</div>
+      <div class="tactic-body">Instagram story relay using the "Add Yours" sticker — seeded with NTEU's own content, designed for organic amplification. T-shirt incentive for selected participants drove initial engagement. Ran simultaneously with Twitter and Facebook campaign content to ensure cross-platform reach.</div>
+      <div class="tactic-meta">Target: Social-active university workers · Instagram / Twitter / Facebook</div>
+    </div>
+  </div>
+</div>
+
+<!-- DATA -->
+<div class="cs-section">
+  <div class="cs-label">06 — The Numbers That Drove the Strategy</div>
+  <h2 class="cs-heading">Data wasn't decoration.<br><em>It was the argument.</em></h2>
+  <p class="cs-body">Every strategic recommendation was grounded in publicly available data — from WGEA, NTEU's own Meltwater monitoring, and academic research. This is what made the campaign credible to journalists and policy audiences, not just sympathisers.</p>
+  <div class="stats-row">
+    <div class="stat-block">
+      <div class="stat-num">14<em>.1%</em></div>
+      <div class="stat-label">Gender Pay Gap</div>
+      <div class="stat-source">Full-time employees, Australia 2022 · WGEA</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">43<em>.7%</em></div>
+      <div class="stat-label">Casual University Staff</div>
+      <div class="stat-source">97,561 of 223,439 total staff · 2018</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">&lt;1<em>/3</em></div>
+      <div class="stat-label">Workers with Secure Jobs</div>
+      <div class="stat-source">NTEU estimate · Australian universities</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">3.5<em>k→5k</em></div>
+      <div class="stat-label">Target Mentions / Month</div>
+      <div class="stat-source">Baseline: 3.53k · Meltwater data</div>
+    </div>
+  </div>
+</div>
+
+<!-- PHOEBE'S CONTRIBUTION -->
+<div class="contrib-section">
+  <div class="contrib-inner">
+    <div class="contrib-quote">"The brief said: fight for workers. I said: <em>fight for students</em> — and suddenly, everyone has a reason to care."</div>
+    <div class="contrib-points">
+      <div class="contrib-label-top">My strategic contribution</div>
+      <div class="contrib-point">
+        <div class="contrib-point-label">The reframe</div>
+        <div class="contrib-point-text">I identified and argued for repositioning the campaign from a labour dispute to an education integrity crisis — expanding the audience from union sympathisers to every stakeholder in Australian higher education.</div>
+      </div>
+      <div class="contrib-point">
+        <div class="contrib-point-label">The hidden insight</div>
+        <div class="contrib-point-text">Through independent research, I uncovered the casualised staff → enrolment pressure → grade manipulation loop — a structural problem that went unaddressed in the original brief and became the campaign's most powerful argument.</div>
+      </div>
+      <div class="contrib-point">
+        <div class="contrib-point-label">The solution architecture</div>
+        <div class="contrib-point-text">I proposed a differentiated push strategy: provide pathways to permanency for capable casual staff, while reducing new casual hiring — protecting both student experience and academic standards simultaneously.</div>
+      </div>
+      <div class="contrib-point">
+        <div class="contrib-point-label">Execution ownership</div>
+        <div class="contrib-point-text">I personally wrote and structured both media releases, selected and briefed the supporting image set, and defined the two-wave release timeline to sustain media attention across the campaign period.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT -->
+<a href="index.html" class="next-proj">
+  <div>
+    <div class="next-label">Back to Portfolio</div>
+    <div class="next-title">View All Projects →</div>
+  </div>
+  <div style="font-size:2rem;color:var(--accent)">→</div>
+</a>
+
+</body>
+</html>
