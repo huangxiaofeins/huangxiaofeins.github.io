@@ -153,11 +153,12 @@ footer{padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space
 
 <nav>
   <a href="#" class="nav-logo">Phoebe <span>Huang</span></a>
+  <!-- 🧭 NAV 导航栏: 每个链接对应一个页面锚点或独立页面 -->
   <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#thinking">Thinking</a></li>
-    <li><a href="#wip">In Progress</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li><!-- ✅ 跳转到首页 #work 区块 -->
+    <li><a href="#thinking">Thinking</a></li><!-- 📝 预留: 可改为 "thinking.html" 独立博客列表页 -->
+    <li><a href="#wip">In Progress</a></li><!-- ✅ 跳转到首页 #wip 区块 -->
+    <li><a href="#about">About</a></li><!-- 👤 预留: 可改为 "about.html" 独立关于页 -->
   </ul>
   <a href="mailto:xiaofei.phoebe.huang@email.com" class="nav-cta">Get in Touch</a>
 </nav>
@@ -178,7 +179,9 @@ footer{padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space
       <span class="tag">Digital Marketing</span>
     </div>
     <div class="hero-btns">
+      <!-- 🔗 已连接: 点击跳转到首页 #work 区域 -->
       <a href="#work" class="btn-primary">View My Work →</a>
+      <!-- 📄 CV 下载接口: 将 href="#" 替换为你的 CV 文件路径，例如 href="phoebe-huang-cv.pdf" -->
       <a href="#" class="btn-ghost">Download CV ↗</a>
     </div>
   </div>
@@ -205,9 +208,11 @@ footer{padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space
 <section class="section" id="work">
   <div class="section-header">
     <h2 class="section-title">Selected <em>Work</em></h2>
+    <!-- 🗂️ 预留接口: 未来建立 work.html 全项目页时，将 href="#" 替换为 "work.html" -->
     <a href="#" class="section-link">All Projects →</a>
   </div>
   <div class="projects-grid">
+    <!-- ✅ 已连接: 试颜项目详情页 → shiyan-case-study.html -->
     <a href="shiyan-case-study.html" class="project-card featured">
       <div>
         <div class="proj-num">01 — Real Client</div>
@@ -225,6 +230,7 @@ footer{padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space
         <i class="ti ti-sparkles"></i>
       </div>
     </a>
+    <!-- 🔧 预留接口: Target Group Insight Agent 详情页未建立，建好后将外层 <div> 改为 <a href="insight-agent.html"> -->
     <div class="project-card">
       <div class="proj-num">02 — AI Tool</div>
       <div class="proj-tags">
@@ -237,7 +243,8 @@ footer{padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space
       <p class="proj-desc">A custom AI agent that automates audience research — turning raw data into actionable strategic insight for planners and strategists. Built from scratch.</p>
       <div class="proj-status"><span class="status-dot wip"></span> In Progress</div>
     </div>
-    <div class="project-card">
+    <!-- ✅ 已连接: NTEU 项目详情页 → nteu-case-study.html -->
+    <a href="nteu-case-study.html" class="project-card">
       <div class="proj-num">03 — Campus / Agency-Ready</div>
       <div class="proj-tags">
         <span class="proj-tag">Integrated Campaign</span>
@@ -247,7 +254,20 @@ footer{padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space
       <h3 class="proj-title">NTEU #Secure &amp; Equal — Campaign Strategy</h3>
       <p class="proj-desc">Reframing a labour rights brief into an education integrity crisis — a strategic reframe that changed the campaign's entire audience and argument.</p>
       <div class="proj-status"><span class="status-dot"></span> Completed</div>
-    </div>
+    </a>
+    <!-- ✅ 已连接: Bondi Sands 项目详情页 → bondi-sands-case-study.html -->
+    <a href="bondi-sands-case-study.html" class="project-card">
+      <div class="proj-num">04 — Campus / Agency-Ready</div>
+      <div class="proj-tags">
+        <span class="proj-tag">Brand Strategy</span>
+        <span class="proj-tag">FMCG / Beauty</span>
+        <span class="proj-tag">Regulatory Insight</span>
+      </div>
+      <div class="proj-visual" style="height:140px;margin-bottom:1.2rem"><i class="ti ti-sun"></i></div>
+      <h3 class="proj-title">Bondi Sands — SPF Foundation Launch</h3>
+      <p class="proj-desc">Turning Australia's most complex regulatory barrier into Bondi Sands' most powerful competitive advantage. A go-to-market brief for the only SPF foundation that's legally real.</p>
+      <div class="proj-status"><span class="status-dot"></span> Completed</div>
+    </a>
   </div>
 </section>
 
@@ -275,19 +295,23 @@ footer{padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space
 <section class="section" id="thinking">
   <div class="section-header">
     <h2 class="section-title">Thinking <em>Out Loud</em></h2>
+    <!-- 📝 预留接口: 未来建立 thinking.html 博客列表页时，将 href="#" 替换为 "thinking.html" -->
     <a href="#" class="section-link">All Posts →</a>
   </div>
   <div class="thoughts-grid">
+    <!-- 📝 预留接口: 文章页面未建立，建好后替换 href="#" 为对应文章页路径，例如 "post-llm-strategist.html" -->
     <a href="#" class="thought-card">
       <div class="thought-date">May 2025</div>
       <h3 class="thought-title">Why every strategist needs to understand LLMs</h3>
       <p class="thought-excerpt">AI literacy isn't a tech skill anymore — it's a strategic advantage hiding in plain sight.</p>
     </a>
+    <!-- 📝 预留接口: 文章页面未建立，建好后替换 href="#" 为对应文章页路径，例如 "post-gen-z-beauty.html" -->
     <a href="#" class="thought-card">
       <div class="thought-date">Apr 2025</div>
       <h3 class="thought-title">What beauty brands get wrong about Gen Z loyalty</h3>
       <p class="thought-excerpt">Lessons from the ShiYan project — and why community beats product every time.</p>
     </a>
+    <!-- 📝 预留接口: 文章页面未建立，建好后替换 href="#" 为对应文章页路径，例如 "post-ai-agent-reflection.html" -->
     <a href="#" class="thought-card">
       <div class="thought-date">Mar 2025</div>
       <h3 class="thought-title">Building my first AI agent: a strategist's honest reflection</h3>
@@ -301,6 +325,7 @@ footer{padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space
     <div class="about-eyebrow">About Me</div>
     <h2 class="about-heading">Built from<br>curiosity.<br><em>Driven by proof.</em></h2>
     <p class="about-body">I'm Phoebe — a brand strategist and AI native based in Sydney. I didn't follow a straight path. I challenged assumptions, taught myself new tools, and built things before I had permission to. My work sits at the intersection of sharp consumer insight, integrated strategy, and the AI capabilities I've developed myself.</p>
+    <!-- 👤 预留接口: 未来建立独立 about.html 页面时，将 href="#" 替换为 "about.html" -->
     <a href="#" class="btn-primary">More About Me →</a>
   </div>
   <div class="about-right">
@@ -319,8 +344,10 @@ footer{padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space
 <footer>
   <div class="footer-name">Phoebe Huang</div>
   <div class="footer-links">
+<!-- 🔗 LINKEDIN: 替换为你的真实 LinkedIn 个人页 URL，例如 linkedin.com/in/phoebe-huang-xxx -->
     <a href="https://linkedin.com" target="_blank">LinkedIn</a>
     <a href="mailto:xiaofei.phoebe.huang@email.com">Email</a>
+<!-- 📄 RESUME 下载: 将 href="#" 替换为你的 CV 文件路径，与 Hero 区 Download CV 保持一致 -->
     <a href="#">Resume</a>
   </div>
   <div class="footer-copy">© 2025 Xiaofei Phoebe Huang</div>
